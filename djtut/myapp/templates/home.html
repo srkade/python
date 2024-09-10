@@ -7,9 +7,38 @@
 </head>
 <body>
     <div class="container" style="text-align:center" >
-        <h1>This is our official website</h1>
+        {% include 'navbar.html' %}
+
+        
+        <h1>Welcome To Our Website </h1>
+        <form action="/index/">
+            <input type="text" name="check">
+            <button>send</button>
+            
+        </form>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque sunt ratione, maxime iusto blanditiis ullam doloribus modi. Officia consequatur ad facere ipsa sit deserunt laborum, magni voluptas hic, veritatis modi cupiditate dolore pariatur laboriosam fuga. Soluta, nihil amet nam suscipit asperiores facere eaque. Iure reiciendis, laudantium doloremque alias aliquam at.</p>
         <button>contact Us </button>
+        <!-- Accessing dynamic data -->
+
+        {% if isActive  %}
+       <div>
+        <h1>Todays Date is {{date}} </h1>
+        <h1>Name Is {{name}} </h1>
+        <hr>
+        <h2>Student Data </h2>
+        <h2>Student Name :{{student_data.name}} {{student_data.last_name}} </h2>
+        <h2>Student Age :{{student_data.age}}</h2>
+        <h2>Student Age :{{student_data.age}}</h2>
+        <h1>Favorite Program</h1>
+        {% for p in list_of_programs %}
+        <h3> {{p}} </h3>
+        {% endfor %}
+        
+       </div>
+
+
+
+       {% endif %}
     </div>
     
 </body>
