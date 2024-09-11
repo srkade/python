@@ -1,11 +1,21 @@
 from django.http import HttpResponse
 import datetime
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
+
+@csrf_protect
 def home(request):
-    # check=request.GET['check']
+    isActive = True
+    if request.method == 'POST':
+        check = request.POST.get("check")  
+        print(check)
+        if check is None:
+            isActive = False
+        else:
+            isActive = True
 
     date=datetime.datetime.now()
-    isActive=True
+    
     name="learnCodeWithShree"
     list_of_programs=[
         'write a prgram to check even number',
@@ -15,9 +25,8 @@ def home(request):
     ]
     student ={
         'name':"Shreee",
-        'last_name':"Ade",
         'age':26,
-        'education':"Bachelor Of Engineering",
+        'college':"Bachelor Of Engineering",
         'address':"Chandan Nagar Pune 411014"
 
     }

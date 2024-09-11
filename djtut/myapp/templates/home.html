@@ -11,11 +11,13 @@
 
         
         <h1>Welcome To Our Website </h1>
-        <form action="/index/">
-            <input type="text" name="check">
-            <button>send</button>
+        <form action="/index/" method="POST">
+            {% csrf_token %}
             
+            <input type="radio" value="True" name="check"> Check
+            <button type="submit">Send</button>
         </form>
+        
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque sunt ratione, maxime iusto blanditiis ullam doloribus modi. Officia consequatur ad facere ipsa sit deserunt laborum, magni voluptas hic, veritatis modi cupiditate dolore pariatur laboriosam fuga. Soluta, nihil amet nam suscipit asperiores facere eaque. Iure reiciendis, laudantium doloremque alias aliquam at.</p>
         <button>contact Us </button>
         <!-- Accessing dynamic data -->
@@ -26,7 +28,7 @@
         <h1>Name Is {{name}} </h1>
         <hr>
         <h2>Student Data </h2>
-        <h2>Student Name :{{student_data.name}} {{student_data.last_name}} </h2>
+        <h2>Student Name :{{student_data.name}} </h2>
         <h2>Student Age :{{student_data.age}}</h2>
         <h2>Student Age :{{student_data.age}}</h2>
         <h1>Favorite Program</h1>
